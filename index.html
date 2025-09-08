@@ -1,302 +1,393 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Sakshi Chandra | Portfolio</title>
-    <meta name="description" content="Sakshi Chandra — Computer Science Engineer | AI/ML & Full-Stack Development" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sakshi Chandra | Portfolio</title>
+  <meta name="description" content="Sakshi Chandra — AI/ML Engineer & Full-Stack Developer" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            background-color: #1a1a2e; 
-            color: #E0E0E0;
-            font-family: 'Inter', sans-serif;
-        }
-        .font-display {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .section {
-            scroll-margin-top: 80px;
-        }
-        .card {
-            background: rgba(40, 40, 75, 0.5);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(167, 139, 250, 0.2);
-            border-radius: 1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.3);
-        }
-        .gradient-title {
-            background: linear-gradient(to right, #A78BFA, #D8B4FE);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .btn {
-            border-radius: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        .btn-primary {
-            background: #A78BFA;
-            color: #1a1a2e;
-            border: 1px solid #A78BFA;
-        }
-        .btn-primary:hover {
-            background: #C4B5FD;
-            transform: scale(1.05);
-        }
-        .btn-outline {
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            color: #E0E0E0;
-        }
-        .btn-outline:hover {
-            background: rgba(167, 139, 250, 0.1);
-            border-color: rgba(167, 139, 250, 0.6);
-        }
-        .header-link {
-            color: #9393aa;
-            transition: color 0.2s ease;
-            position: relative;
-            padding-bottom: 4px;
-        }
-        .header-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #A78BFA;
-            transition: width 0.3s ease;
-        }
-        .header-link:hover {
-            color: #F3F4F6;
-        }
-        .header-link:hover::after {
-            width: 100%;
-        }
-        .tech-tag {
-            background-color: rgba(167, 139, 250, 0.1);
-            color: #C4B5FD;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-    </style>
+  <style>
+    body {
+      background-color: #0d0d16;
+      color: #E0E0E0;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+    }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .gradient-title {
+      background: linear-gradient(to right, #A78BFA, #D8B4FE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn-glow {
+        background: linear-gradient(90deg, #A78BFA, #D8B4FE);
+        color: #1a1a2e;
+        padding: 1rem 2rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px rgba(167, 139, 250, 0.6);
+    }
+
+    .btn-glow:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 0 25px rgba(167, 139, 250, 0.9);
+    }
+
+        /* Outline button – subtle at rest */
+    .btn-outline {
+        border: 1px solid rgba(167, 139, 250, 0.4);
+        color: #E0E0E0;
+        padding: 1rem 2rem;
+        border-radius: 9999px;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        background: transparent;
+    }
+
+        /* ✨ Glow on hover */
+    .btn-outline:hover {
+        background: linear-gradient(90deg, #A78BFA, #D8B4FE);
+        color: #1a1a2e;
+        border-color: transparent;
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 0 25px rgba(167, 139, 250, 0.9);
+    }
+    .btn-outline, .btn-glow {
+        display: inline-flex;            /* puts icon + text in same row */
+        align-items: center;             /* vertical alignment */
+        justify-content: center;         /* center content */
+        gap: 0.5rem;                     /* spacing between icon and text */
+        text-decoration: none;           /* remove underline */
+    }
+
+
+    .glass-card {
+      background: rgba(30, 30, 50, 0.5);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      backdrop-filter: blur(20px);
+      border-radius: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+    }
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .highlight {
+        color: #C4B5FD;
+        font-weight: 600; 
+    }
+    .skill-tag {
+        background-color: rgba(167, 139, 250, 0.15); /* semi-transparent lavender */
+        color: #C4B5FD; /* soft lavender text */
+        padding: 0.4rem 0.9rem;
+        border-radius: 9999px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: background-color 0.2s ease; /* only color transition */
+    }
+
+    .skill-tag:hover {
+        background-color: rgba(167, 139, 250, 0.3); /* subtle hover */
+    }
+
+
+
+  </style>
 </head>
 <body class="min-h-screen relative">
 
-    <header class="fixed top-0 w-full z-50 bg-[#1a1a2e]/80 backdrop-blur-lg border-b border-gray-700/50">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="#home" class="text-2xl font-bold font-display gradient-title">Sakshi Chandra</a>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#about" class="header-link">About</a>
-                    <a href="#education" class="header-link">Education</a>
-                    <a href="#experience" class="header-link">Experience</a>
-                    <a href="#projects" class="header-link">Projects</a>
-                    <a href="#skills" class="header-link">Skills</a>
-                    <a href="#contact" class="header-link">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <section id="home" class="relative min-h-screen flex items-center justify-center px-6 pt-20">
-        <div class="absolute inset-0 -z-10 h-full w-full bg-[#1a1a2e] bg-[radial-gradient(#A78BFA_1px,transparent_1px)] [background-size:32px_32px]"></div>
-        <div class="text-center max-w-4xl mx-auto section">
-            <h1 class="text-5xl md:text-7xl font-bold font-display mb-4">
-                <span class="gradient-title">Sakshi Chandra</span>
-            </h1>
-            <p class="text-2xl text-gray-300 mb-6 font-display">Computer Science Engineer</p>
-            <p class="text-lg text-gray-400 mb-10 max-w-3xl mx-auto">
-                Proficient in developing intelligent applications, from <strong>AI-powered systems</strong> to dynamic <strong>full-stack solutions</strong>.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#projects" class="btn btn-primary">
-                    <i data-lucide="folder-git-2"></i>
-                    <span>View My Work</span>
-                </a>
-                <a href="https://raw.githubusercontent.com/SakshiChandra25/Resume/main/Sakshi_Chandra-Resume.pdf" target="_blank" class="btn btn-outline">
-                  📄 Resume
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 px-6 section">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold font-display gradient-title mb-6">About Me</h2>
-            <div class="card p-8 md:p-12">
-                <p class="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                    A Computer Science student at VIT Bhopal University specializing in E-Commerce Technology with a GPA of <strong>8.34/10</strong>, I have cultivated a strong foundation in both theoretical principles and practical application. My objective is to engineer high-impact solutions by integrating advanced Artificial Intelligence and Machine Learning models with robust, full-stack web technologies. Through a portfolio of diverse academic and personal projects, I have gained substantial, hands-on experience in the complete development lifecycle—from analyzing complex problems to designing, building, and deploying innovative technical solutions that are both scalable and user-centric.
-                </p>
-            </div>
-        </div>
-    </section>
-    <section id="education" class="py-24 px-6 section bg-gray-900/50">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold font-display gradient-title mb-12 text-center">Education</h2>
-        <div class="card p-8">
-            <div class="flex flex-col sm:flex-row justify-between items-start">
-                <div>
-                    <h3 class="text-xl font-bold text-white">Vellore Institute of Technology, Bhopal</h3>
-                    <p class="font-semibold" style="color: #A78BFA;">B.Tech in Computer Science & Engineering</p>
-                    <p class="text-gray-400 text-sm mt-1">Specialization in e-commerce Technology</p>
-                </div>
-                <div class="text-left sm:text-right mt-4 sm:mt-0">
-                    <p class="text-gray-300 font-semibold">Expected May 2026</p>
-                    <p class="text-gray-400">CGPA: 8.34 / 10</p>
-                </div>
-            </div>
-        </div>
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-purple-400/10">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#home" class="text-3xl font-bold font-display gradient-title">Sakshi Chandra</a>
+      <nav class="hidden md:flex space-x-8 text-lg text-gray-300">
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#education" class="hover:text-white">Education</a>
+        <a href="#skills" class="hover:text-white">Skills</a>
+        <a href="#experience" class="hover:text-white">Experience</a>
+        <a href="#projects" class="hover:text-white">Projects</a>
+        <a href="#certifications" class="hover:text-white">Certifications</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </nav>
     </div>
-</section>
+  </header>
 
-    <section id="experience" class="py-24 px-6 section bg-[#111122]/50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold font-display gradient-title mb-12 text-center">Experience</h2>
-            <div class="card p-8">
-                <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                     <h3 class="text-2xl font-bold text-white">Web Development Intern</h3>
-                     <p class="text-purple-300">Feb 2025 - May 2025</p>
-                </div>
-                <p class="font-semibold" style="color: #A78BFA;">Eutien Technologies - Remote</p>
-                <ul class="list-disc list-inside space-y-2 text-gray-400">
-                    <li>Architected a complete e-commerce platform based on client specifications, replicating a professional development lifecycle.</li>
-                    <li>Developed a responsive and interactive frontend using React.js and engineered the backend with Node.js and MySQL.</li>
-                    <li>Implemented key modules, including secure user authentication, a dynamic product catalog, and a full shopping cart flow.</li>
-                    <li>Boosted site performance and guaranteed flawless cross-browser compatibility for a consistent user experience.</li>
-                </ul>
+  <!-- Hero -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center text-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#2b1b47] to-black"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.15),transparent_60%)]"></div>
+    
+    <div class="relative z-10 max-w-4xl px-6">
+      <h1 class="text-7xl md:text-8xl font-display font-bold gradient-title drop-shadow-lg">Sakshi Chandra</h1>
+      <p class="mt-6 text-2xl text-gray-300">Full-Stack Developer · AI/ML Engineer · Problem Solver</p>
+      <p class="mt-6 text-2xl text-gray-300">Specializing in <span class="highlight">Full-Stack Development</span>. I build intelligent, scalable applications that turn complex data into real-world impact.</p>
+      <div class="mt-10 flex justify-center gap-6">
+        <a href="#projects" class="btn-outline">
+        <i data-lucide="folder-git-2" class="w-5 h-5"></i><span>View my work</span>
+        </a>
+        <a href="https://raw.githubusercontent.com/SakshiChandra25/Resume/main/SakshiChandra-ResumeSDE.pdf" target="_blank" class="btn-outline">📄 Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="section-title gradient-title">About Me</h2>
+      <p class="text-gray-300 leading-relaxed text-lg">
+        I’m a Computer Science student at <span class="highlight">VIT Bhopal University</span>, specializing in E-Commerce Technology with a GPA of <span class="highlight">8.34/10</span>. 
+        My goal is to engineer impactful solutions by combining Artificial Intelligence with robust full-stack web technologies. 
+        With hands-on experience in both academic and personal projects, I thrive in designing, building, and deploying scalable, user-focused systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="py-24 px-6 bg-[#111122]">
+    <h2 class="section-title gradient-title">Education</h2>
+    <div class="max-w-3xl mx-auto">
+      <div class="relative border-l-2 border-purple-400/40 pl-8 space-y-12">
+        <div>
+          <h3 class="text-2xl font-bold text-white">VIT Bhopal University</h3>
+          <p class="text-purple-300">B.Tech in Computer Science and Engineering with specialization in E-Commerce Technology</p>
+          <p class="text-gray-400 mt-2">Oct 2022 – May 2026 | GPA: 8.34/10</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+    <section id="skills" class="py-24 px-6">
+        <h2 class="section-title gradient-title">Skills</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
+            <!-- Languages -->
+            <div class="glass-card p-6">
+            <h3 class="text-xl font-bold text-purple-300">Languages</h3>
+            <p class="mt-2 text-gray-300">Proficient in Python for data science, SQL for scalable backends.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
             </div>
+            </div>
+
+            <!-- Frameworks -->
+            <div class="glass-card p-6">
+            <h3 class="text-xl font-bold text-purple-300">Frameworks</h3>
+            <p class="mt-2 text-gray-300">Skilled in building full-stack applications using Node.js and React.js.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express.js</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">HTML/CSS/JS</span>
+            </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="glass-card p-6">
+            <h3 class="text-xl font-bold text-purple-300">Tools</h3>
+            <p class="mt-2 text-gray-300">Experienced in containerizing apps with Docker and leveraging tools like Git and Postman for efficient workflows.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Postman</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">AWS</span>
+            </div>
+            </div>
+
+            <!-- Data Viz -->
+            <div class="glass-card p-6">
+            <h3 class="text-xl font-bold text-purple-300">Data Visualization</h3>
+            <p class="mt-2 text-gray-300">Develop responsive dashboards using modern BI tools.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Excel</span>
+            </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="projects" class="py-24 px-6 section">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold font-display gradient-title mb-12 text-center">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-            
-                <div class="card p-8 group flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
-                            <h3 class="text-2xl font-bold text-white">FlutterFeista: AI Event Planner</h3>
-                            <span class="text-sm text-gray-400 bg-gray-700/50 px-3 py-1 rounded-full whitespace-nowrap">AI/ML Project</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">
-                           Developed an interactive web app with Streamlit that uses machine learning to classify events, achieving 83% accuracy with a Random Forest model.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-tag">Python</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Joblib</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 mt-auto">
-                         <a href="https://colab.research.google.com/drive/1Ibnva0mFWdDwrCT5XqATBU8-_-qpvsBU?usp=sharing" target="_blank" class="btn btn-outline text-sm py-2 px-4"><i data-lucide="book-open"></i> Colab</a>
-                        <a href="https://flutterfeista-d5xvlt4b2hjnzcgztya29j.streamlit.app/" target="_blank" class="btn btn-outline text-sm py-2 px-4"><i data-lucide="monitor"></i> Live App</a>
-                        <a href="#" target="_blank" class="btn btn-outline text-sm py-2 px-4"><i data-lucide="github"></i> Code</a>
-                    </div>
-                </div>
-
-                <div class="card p-8 group flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
-                            <h3 class="text-2xl font-bold text-white">Werify: Phishing URL Detection</h3>
-                            <span class="text-sm text-gray-400 bg-gray-700/50 px-3 py-1 rounded-full whitespace-nowrap">Team Project</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">
-                           Engineered a full-stack solution for real-time URL verification. Benchmarked Decision Tree, XGBoost, and SVM models to maximize detection accuracy.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-tag">Node.js</span><span class="tech-tag">Python</span><span class="tech-tag">HTML/CSS/JS</span><span class="tech-tag">SVM</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 mt-auto">
-                        <a href="#" target="_blank" class="btn btn-outline text-sm py-2 px-4"><i data-lucide="github"></i> Code</a>
-                    </div>
-                </div>
+  <!-- Experience -->
+    <section id="experience" class="py-24 px-6">
+        <h2 class="section-title gradient-title">Experience</h2>
+        <div class="max-w-3xl mx-auto">
+        <div class="relative border-l-2 border-purple-400/40 pl-8 space-y-12">
+            <div>
+            <h3 class="text-2xl font-bold text-white">Web Development Intern</h3>
+            <p class="text-purple-300">Eutien Utilities — Remote</p>
+            <p class="text-gray-400 mt-2">Feb 2025 – May 2025</p>
+            <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
+                <li>Built a <span class="highlight">full-scale e-commerce platform</span> simulating real-world project execution.</li>
+                <li>Developed responsive frontend with <span class="highlight">React.js, HTML, CSS, and JS</span>.</li>
+                <li>Designed backend services with <span class="highlight">Node.js + MySQL for secure data handling</span>.</li>
+                <li>Optimized SQL queries, performance, and ensured cross-browser compatibility.</li>
+            </ul>
             </div>
+        </div>
         </div>
     </section>
 
-    <section id="skills" class="py-24 px-6 section">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold font-display gradient-title mb-12 text-center">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card p-6">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-purple-500/10 p-3 rounded-lg"><i data-lucide="code-2" class="w-6 h-6 text-purple-400"></i></div>
-                        <h3 class="text-xl font-semibold text-white">Languages</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">Java</span><span class="tech-tag">Python</span><span class="tech-tag">SQL</span>
-                    </div>
-                </div>
-                <div class="card p-6">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-purple-500/10 p-3 rounded-lg"><i data-lucide="cuboid" class="w-6 h-6 text-purple-400"></i></div>
-                        <h3 class="text-xl font-semibold text-white">Frameworks & Libraries</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">React.js</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">RESTful APIs</span>
-                    </div>
-                </div>
-                <div class="card p-6">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-purple-500/10 p-3 rounded-lg"><i data-lucide="cuboid" class="w-6 h-6 text-purple-400"></i></div>
-                        <h3 class="text-xl font-semibold text-white">Business Intelligence & Data Visualization</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">Power BI</span><span class="tech-tag">Tableau</span><span class="tech-tag">Excel</span>
-                    </div>
-                </div>
-                <div class="card p-6">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-purple-500/10 p-3 rounded-lg"><i data-lucide="terminal-square" class="w-6 h-6 text-purple-400"></i></div>
-                        <h3 class="text-xl font-semibold text-white">Developer Tools</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">GitHub</span><span class="tech-tag">AWS</span><span class="tech-tag">Postman</span><span class="tech-tag">HTML/CSS/JS</span><span class="tech-tag">Firebase</span><span class="tech-tag">Streamlit</span>
-                    </div>
-                </div>
+    <!-- Projects -->
+    <section id="projects" class="py-24 px-6 bg-[#111122]">
+        <h2 class="section-title gradient-title">Projects</h2>
+        <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+        <!-- Gatherlystics -->
+        <div class="glass-card p-8">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-white mb-2">Gatherlystics – Event Planning Platform</h3>
+                <span class="px-3 py-1 text-sm rounded-full bg-purple-500/20 text-purple-300 inline-flex items-center">
+                    <i data-lucide="clock" class="w-4 h-4 mr-1"></i> Currently Deploying
+                </span>
             </div>
+            <p class="text-gray-300 mb-4">
+                <strong><span class="highlight">Objective: To integrate a custom event planner model and allow users to choose suitable vendors within budget, enabling smooth bookings and close-call decisions.</span></strong>
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-gray-400 mb-4">
+                <li>Built and deployed a full-stack, AI-driven event planning web application using Next.js, React, and Bootstrap.</li>
+                <li>Integrated a custom-trained ML model to automatically suggest event categories to users.</li>
+                <li>Containerized the app with Docker for consistent deployment.</li>
+                <li>Deployed on Vercel with CI/CD for real-time accessibility.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Bootstrap</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Vercel</span>
+            </div>
+            <!--
+            <a href="#" target="_blank" class="btn-outline flex items-center gap-2 w-fit">
+                <i data-lucide="monitor" class="w-4 h-4"></i>
+                <span>Live Website</span>
+            </a>
+            -->
+        </div>
+
+        <!-- Event Planner Classification Model -->
+        <div class="glass-card p-8">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-white mb-2">Event-Planner Classification Model</h3>
+                <span class="px-3 py-1 text-sm rounded-full bg-green-500/20 text-green-300 inline-flex items-center">
+                    <i data-lucide="check-circle" class="w-4 h-4 mr-1"></i>Completed
+                </span>
+            </div>
+            <p class="text-gray-300 mb-4">
+                <strong><span class="highlight">Objective: Predict event type based on parameters like budget, guests, food type, venue, and cuisine preference.</span></strong>
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-gray-400 mb-4">
+                <li>Developed classification models in Python with Scikit-learn & Pandas.</li>
+                <li>Achieved 83% accuracy with Random Forest, outperforming Decision Tree.</li>
+                <li>Engineered features using OneHot Encoding for categorical inputs.</li>
+                <li>Serialized model with joblib for deployment on Streamlit.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">Random Forest</span>
+                <span class="skill-tag">Streamlit</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="https://colab.research.google.com/drive/1Ibnva0mFWdDwrCT5XqATBU8-_-qpvsBU?usp=sharing" target="_blank" class="btn-outline flex items-center gap-2 w-fit">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                    Colab
+                </a>
+                <a href="https://flutterfeista-d5xvlt4b2hjnzcgztya29j.streamlit.app/" class="btn-outline flex items-center gap-2 w-fit">
+                    <i data-lucide="globe" class="w-5 h-5"></i>
+                    Model Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- SlamBook -->
+        <div class="glass-card p-8 md:col-span-2">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-white mb-2">SlamBook: The Digital Slambook Experience</h3>
+                <span class="px-3 py-1 text-sm rounded-full bg-green-500/20 text-green-300 inline-flex items-center">
+                    <i data-lucide="check-circle" class="w-4 h-4 mr-1"></i>Completed
+                </span>
+            </div>
+
+            <p class="text-gray-300 mb-4">
+                <strong><span class="highlight">Objective: Create a digital slambook where users can journal, add pictures, videos, stories, and songs.</span></strong>
+                <strong><span class="highlight">Scope: Scalable to journaling & posting with a potential chat feature.
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-gray-400 mb-4">
+                <li>Designed a modern, nostalgic slambook web app.</li>
+                <li>Used React’s hooks & lifecycle for seamless UX.</li>
+                <li>Built with Next.js, Vite, Bootstrap, JS, HTML, and CSS.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">Vite</span>
+                <span class="skill-tag">Bootstrap</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+            </div>
+            <!--
+            <a href="#" target="_blank" class="btn-outline flex items-center gap-2 w-fit">
+                <i data-lucide="github" class="inline-block mr-2 w-5 h-5"></i>
+                Code
+            </a>
+            -->
+        </div>
+
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 section">
+
+
+  <!-- Certifications -->
+  <section id="certifications" class="py-24 px-6 bg-[#111122]">
+    <h2 class="section-title gradient-title">Certifications</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="glass-card p-6"><p class="text-gray-300">Industrial IoT Markets & Security — Coursera (Dec 2023)</p></div>
+      <div class="glass-card p-6"><p class="text-gray-300">Generative AI: Prompt Engineering Basics — Coursera (Dec 2024)</p></div>
+      <div class="glass-card p-6"><p class="text-gray-300">Full Stack Developer (MERN) — Smartbridge (Apr 2025)</p></div>
+      <div class="glass-card p-6"><p class="text-gray-300">Problem Solvers: Mastering DSA — FacePrep (Apr 2025)</p></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 px-6 section">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold font-display gradient-title mb-6">Get In Touch</h2>
-            <p class="text-gray-400 mb-10 text-lg">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            <p class="text-gray-400 mb-10 text-lg">I am pursuing opportunities as a <span class="highlight">Software Developer, Full-Stack Developer or AI/ML Engineer</span>, with availability for <span class="highlight">internships from January 2026</span> and <span class="highlight">full-time roles from May 2026</span>. I'm ready to apply my skills to real-world challenges and welcome a conversation about how I can bring value to your team.</p>
             <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
                 <a href="mailto:sakshi2507chandra@gmail.com" class="header-link text-lg"><i data-lucide="mail" class="inline-block mr-2 w-5 h-5"></i>Email</a>
-                <a href="#" target="_blank" class="header-link text-lg"><i data-lucide="github" class="inline-block mr-2 w-5 h-5"></i>GitHub</a>
-                <a href="#" target="_blank" class="header-link text-lg"><i data-lucide="linkedin" class="inline-block mr-2 w-5 h-5"></i>LinkedIn</a>
+                <a href="https://github.com/SakshiChandra25" target="_blank" class="header-link text-lg"><i data-lucide="github" class="inline-block mr-2 w-5 h-5"></i>GitHub</a>
+                <a href="https://www.linkedin.com/in/sakshi-chandra-629a36335" target="_blank" class="header-link text-lg"><i data-lucide="linkedin" class="inline-block mr-2 w-5 h-5"></i>LinkedIn</a>
             </div>
         </div>
     </section>
 
-    <footer class="py-8 px-6 text-center text-gray-500 text-sm border-t border-gray-700/50">
-        &copy; 2025 Sakshi Chandra. All rights reserved.
-    </footer>
 
-    <script>
-        lucide.createIcons();
-    </script>
+  <footer class="py-8 text-center text-gray-500 border-t border-purple-400/10 text-lg">
+    © 2025 Sakshi Chandra. All rights reserved.
+  </footer>
+
+  <script>lucide.createIcons();</script>
 </body>
 </html>
