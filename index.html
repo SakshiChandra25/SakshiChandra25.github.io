@@ -34,12 +34,19 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
+            width: 100%;
+            position: relative;
         }
 
         h1, h2, h3, h4 {
@@ -194,6 +201,45 @@
             background: var(--accent-purple);
             color: white;
             box-shadow: var(--glow-purple);
+        }
+
+        /* Experience Certificate Button */
+        .exp-cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+            padding: 0.7rem 1.4rem;
+            background: rgba(0, 242, 255, 0.03);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .exp-cert-btn i {
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .exp-cert-btn:hover {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+            transform: translateY(-2px) translateX(3px);
+            color: white;
+        }
+
+        .exp-cert-btn:hover i {
+            transform: scale(1.1);
+            color: white;
         }
 
         /* Section Styling */
@@ -727,20 +773,142 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 242, 255, 0.1);
+            background: rgba(5, 5, 5, 0.5);
+        }
+
         /* Mobile Adjustments */
-        @media (max-width: 968px) {
+        @media (max-width: 1024px) {
+            section {
+                padding: 6rem 1.5rem;
+            }
+            .hero-glitch { font-size: 4rem; }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 5rem 1.25rem;
+            }
+            
+            section {
+                padding: var(--section-padding);
+                overflow-x: hidden;
+            }
+
+            .hero-glitch { 
+                font-size: 2.8rem;
+                line-height: 1.1;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+                letter-spacing: 4px;
+            }
+
+            .hero-desc {
+                font-size: 1.1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+                padding-left: 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
             .about-grid, .contact-container {
                 grid-template-columns: 1fr;
+                gap: 3rem;
             }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-            .hero-glitch { font-size: 3.2rem; }
-            nav { padding: 1.5rem 1.5rem; }
+
+            nav { 
+                padding: 1rem 1.5rem; 
+            }
+
             .nav-links { display: none; }
             .md\:hidden { display: block; cursor: pointer; font-size: 1.5rem; }
+
             .mobile-menu {
                 padding: 7rem 1.5rem 2rem;
+            }
+
+            .btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 0.85rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero div[style*="display: flex"] {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -2.4rem;
+            }
+
+            .stat-val {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .tag {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-glitch { 
+                font-size: 2.2rem; 
+            }
+            
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .timeline-item h3 {
+                font-size: 1.3rem;
             }
         }
 
@@ -883,7 +1051,8 @@
                 <div class="skill-tags">
                     <span class="tag">Vercel</span>
                     <span class="tag">Git/GitHub</span>
-                    <span class="tag">AWS</span>
+                    <span class="tag">Render</span>
+                    <span class="tag">Railway</span>
                     <span class="tag">Streamlit</span>
                 </div>
             </div>
@@ -909,7 +1078,7 @@
             <div class="timeline-item">
                 <span class="time-date">FEB 2025 — MAY 2025</span>
                 <h3>Web Development Intern</h3>
-                <h4>Eutien Utilities // Remote</h4>
+                <h4>Eutien Technologies // Remote</h4>
                 <ul>
                     <li>Architected and delivered a <span class="highlight">full-scale e-commerce platform</span> from ground up, building <span class="highlight">8+ reusable modules</span> that accelerated feature development across the project lifecycle.</li>
                     <li>Collaborated with the <span class="highlight">Apps Solutions & Services (AS&S) team</span> across web application projects, contributing to all stages of the development lifecycle.</li>
@@ -917,6 +1086,9 @@
                     <li>Engineered <span class="highlight">15+ RESTful backend endpoints</span> using Node.js and MySQL, enabling seamless data flow with an average API response time <span class="highlight">under 200ms</span>.</li>
                     <li>Optimized <span class="highlight">SQL queries</span> for product catalog and order management through indexing and query restructuring, significantly improving execution efficiency.</li>
                 </ul>
+                <a href="https://github.com/SakshiChandra25/Resume/blob/main/InternshipCertificate_EutienTechnologies.pdf" target="_blank" class="exp-cert-btn">
+                    VIEW_CERTIFICATE <i class="fa-solid fa-file-contract"></i>
+                </a>
             </div>
             <div class="timeline-item">
                 <span class="time-date">2022 — 2026</span>
@@ -938,11 +1110,13 @@
         <div class="projects-grid">
             <!-- Project 1 -->
             <div class="card project-card">
-                <span class="time-date">JANUARY 2026</span>
+                <span class="time-date">DECEMBER 2025</span>
                 <h3>GATHERLYSTICS</h3>
                 <div class="project-meta">
                     <span class="tag">Node.js</span>
-                    <span class="tag">React</span>
+                    <span class="tag">React.js</span>
+                    <span class="tag">Railway</span>
+                    <span class="tag">Render</span>
                     <span class="tag">Docker</span>
                     <span class="tag">Vercel</span>
                 </div>
@@ -1162,3 +1336,4 @@
     </script>
 </body>
 </html>
+
